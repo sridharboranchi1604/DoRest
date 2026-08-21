@@ -899,3 +899,322 @@ select {
         width: calc(100% - 64px);
     }
 }
+
+/* =========================================================
+   MOBILE TOP BAR
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .topbar {
+        height: 76px;
+        padding: 0 4px;
+    }
+
+    .topbar h2 {
+        font-size: 19px;
+    }
+
+    .topbar .eyebrow {
+        font-size: 9px;
+    }
+
+    .top-actions {
+        display: flex;
+        gap: 6px;
+        font-size: 10px;
+    }
+
+    .live-dot {
+        width: 7px;
+        height: 7px;
+    }
+
+    .icon-btn {
+        margin-left: 4px;
+        padding: 7px 9px;
+    }
+}
+
+/* =========================================================
+   MOBILE STAT CARDS
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .stat-card {
+        padding: 16px;
+        border-radius: 15px;
+    }
+
+    .stat-card strong {
+        font-size: 25px;
+        margin: 7px 0 4px;
+    }
+
+    .stat-card span,
+    .stat-card small {
+        font-size: 10px;
+    }
+}
+
+/* =========================================================
+   MOBILE ORDER ROWS
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .order-row {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .order-row > div {
+        min-width: 0;
+    }
+
+    .order-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .order-actions button,
+    .order-actions select {
+        width: 100%;
+        min-height: 42px;
+    }
+
+    .order-service {
+        font-size: 14px;
+    }
+
+    .order-meta {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+}
+
+/* =========================================================
+   MOBILE TABLES
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .table-wrap {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 14px;
+    }
+
+    table {
+        min-width: 650px;
+    }
+
+    th,
+    td {
+        white-space: nowrap;
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+}
+
+/* =========================================================
+   MOBILE MODALS
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .modal-overlay {
+        padding: 10px;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .modal-card {
+        width: 100%;
+        max-width: 100%;
+        max-height: calc(100vh - 20px);
+        margin: 0;
+        border-radius: 18px;
+        overflow-y: auto;
+    }
+
+    .modal-header {
+        padding: 16px;
+    }
+
+    .modal-body {
+        padding: 16px;
+    }
+
+    .modal-footer {
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .modal-footer button {
+        width: 100%;
+        min-height: 42px;
+    }
+}
+
+/* =========================================================
+   MOBILE PARTNER CARDS
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .partners-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+
+    .partner-card {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .partner-card h3 {
+        font-size: 15px;
+    }
+
+    .partner-card p {
+        font-size: 11px;
+    }
+
+    .partner-card .partner-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .partner-card button {
+        width: 100%;
+        min-height: 40px;
+    }
+}
+
+/* =========================================================
+   MOBILE DASHBOARD CONTENT
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .content {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .section {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .section-header h2 {
+        font-size: 18px;
+    }
+
+    .section-header p {
+        font-size: 11px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+}
+
+/* =========================================================
+   MOBILE BUTTONS & FORM CONTROLS
+========================================================= */
+
+@media (max-width: 700px) {
+
+    button,
+    select,
+    input {
+        max-width: 100%;
+    }
+
+    button {
+        min-height: 42px;
+    }
+
+    select,
+    input {
+        min-height: 42px;
+        font-size: 13px;
+    }
+
+    .btn-row,
+    .actions,
+    .form-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-row button,
+    .actions button,
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   MOBILE SPACING CLEANUP
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .main {
+        padding-top: 0;
+        padding-bottom: 24px;
+    }
+
+    .content {
+        padding-top: 10px;
+    }
+
+    .section {
+        margin-bottom: 18px;
+    }
+
+    .section-header {
+        margin-bottom: 12px;
+    }
+
+    .card {
+        border-radius: 16px;
+    }
+
+    .empty-state {
+        padding: 30px 15px;
+        text-align: center;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+}
