@@ -1,0 +1,92 @@
+[
+  {
+    "id": "home-cleaning",
+    "name": "Home Cleaning",
+    "icon": "🧹",
+    "description": "Complete cleaning for your home",
+    "basePrice": 399,
+    "category": "Cleaning",
+    "active": true,
+    "sortOrder": 10
+  },
+  {
+    "id": "kitchen-cleaning",
+    "name": "Kitchen Cleaning",
+    "icon": "🍳",
+    "description": "Deep clean your kitchen",
+    "basePrice": 499,
+    "category": "Cleaning",
+    "active": true,
+    "sortOrder": 20
+  },
+  {
+    "id": "bathroom-cleaning",
+    "name": "Bathroom Cleaning",
+    "icon": "🚿",
+    "description": "Deep bathroom cleaning",
+    "basePrice": 349,
+    "category": "Cleaning",
+    "active": true,
+    "sortOrder": 30
+  },
+  {
+    "id": "laundry",
+    "name": "Laundry",
+    "icon": "👕",
+    "description": "Wash, dry and fold",
+    "basePrice": 299,
+    "category": "Laundry",
+    "active": true,
+    "sortOrder": 40
+  },
+  {
+    "id": "dishwashing",
+    "name": "Dishwashing",
+    "icon": "🍽️",
+    "description": "Fresh and clean dishes",
+    "basePrice": 249,
+    "category": "Cleaning",
+    "active": true,
+    "sortOrder": 50
+  },
+  {
+    "id": "cooking",
+    "name": "Cooking",
+    "icon": "👨‍🍳",
+    "description": "Fresh home-cooked meals at your doorstep",
+    "basePrice": 399,
+    "category": "Cooking",
+    "active": true,
+    "sortOrder": 60
+  },
+  {
+    "id": "home-repairs",
+    "name": "Home Repairs",
+    "icon": "🔧",
+    "description": "Everyday repair assistance",
+    "basePrice": 399,
+    "category": "Repairs",
+    "active": true,
+    "sortOrder": 70
+  },
+  {
+    "id": "beauty",
+    "name": "Beauty at Home",
+    "icon": "💆",
+    "description": "Beauty services at your door",
+    "basePrice": 599,
+    "category": "Beauty",
+    "active": true,
+    "sortOrder": 80
+  },
+  {
+    "id": "more",
+    "name": "More Services",
+    "icon": "＋",
+    "description": "Explore more home services",
+    "basePrice": 399,
+    "category": "More",
+    "active": true,
+    "sortOrder": 90
+  }
+]

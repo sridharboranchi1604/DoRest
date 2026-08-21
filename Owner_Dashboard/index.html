@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoRest Owner Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=22">
+</head>
+
+<body>
+  <div id="loginView" class="auth-screen">
+    <div class="auth-glow"></div>
+    <div class="auth-card">
+      <div class="brand-mark">DR</div>
+      <div class="eyebrow">OWNER ACCESS</div>
+      <h1>Welcome back.</h1>
+      <p>Manage bookings, accept orders and assign DoRest professionals.</p>
+      <form id="loginForm">
+        <label>Email<input id="email" type="email" autocomplete="username" required
+            placeholder="owner@dorest.in"></label>
+        <label>Password<input id="password" type="password" autocomplete="current-password" required
+            placeholder="••••••••"></label>
+        <button class="primary" id="loginBtn" type="submit">Sign in <span>→</span></button>
+        <div id="loginError" class="form-error"></div>
+      </form>
+    </div>
+  </div>
+
+  <div id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark small">DR</div>
+        <div><strong>DoRest</strong><span>OWNER</span></div>
+      </div>
+      <nav>
+        <button class="nav-item active" data-section="overview"><span>⌂</span>Overview</button>
+        <button class="nav-item" data-section="orders"><span>▣</span>Orders <b id="pendingBadge">0</b></button>
+        <button class="nav-item" data-section="partners"><span>♙</span>Partners</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="owner-mini">
+          <div class="avatar" id="ownerAvatar">O</div>
+          <div><strong id="ownerName">Owner</strong><span id="ownerEmail">—</span></div>
+        </div>
+        <button id="logoutBtn" class="logout">↪ Sign out</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><span class="eyebrow">Dorest operations</span>
+          <h2 id="pageTitle">Overview</h2>
+        </div>
+        <div class="top-actions"><span class="live-dot"></span><span>Live order feed</span><button id="refreshBtn"
+            class="icon-btn" title="Refresh">↻</button></div>
+      </header>
+
+      <section id="overviewSection" class="section active">
+        <div class="welcome-row">
+          <div>
+            <h1>Good to see you.</h1>
+            <p>Here is what is happening with your service business today.</p>
+          </div><button class="primary" onclick="showSection('orders')">View new orders <span>→</span></button>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card"><span>Pending orders</span><strong id="statPending">0</strong><small>Need your
+              attention</small></div>
+          <div class="stat-card"><span>Accepted</span><strong id="statAccepted">0</strong><small>Ready for
+              assignment</small></div>
+          <div class="stat-card"><span>Active jobs</span><strong id="statActive">0</strong><small>Currently in
+              service</small></div>
+          <div class="stat-card"><span>Completed</span><strong id="statCompleted">0</strong><small>All-time in loaded
+              feed</small></div>
+        </div>
+        <div class="content-card">
+          <div class="card-head">
+            <div><span class="eyebrow">Needs attention</span>
+              <h3>Latest orders</h3>
+            </div><button class="text-btn" onclick="showSection('orders')">See all →</button>
+          </div>
+          <div id="latestOrders" class="order-list"></div>
+        </div>
+      </section>
+
+      <section id="ordersSection" class="section">
+        <div class="section-heading">
+          <div><span class="eyebrow">Order management</span>
+            <h1>Bookings</h1>
+            <p>Accept, reject and assign customer orders.</p>
+          </div>
+          <div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter"
+              data-filter="pending">Pending</button><button class="filter"
+              data-filter="accepted">Accepted</button><button class="filter"
+              data-filter="assigned">Assigned</button><button class="filter" data-filter="completed">Completed</button>
+          </div>
+        </div>
+        <div id="ordersList" class="orders-table-wrap"></div>
+      </section>
+
+      <section id="partnersSection" class="section">
+        <div class="section-heading">
+          <div><span class="eyebrow">Professionals</span>
+            <h1>Partners</h1>
+            <p>Manage the professionals available for assignment.</p>
+          </div><button class="primary" onclick="openPartnerModal()">+ Add partner</button>
+        </div>
+        <div id="partnersList" class="partner-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="orderModal" class="modal hidden">
+    <div class="modal-card wide"><button class="close" onclick="closeModal('orderModal')">×</button><span
+        class="eyebrow">ORDER DETAILS</span>
+      <h2 id="modalOrderTitle">Booking</h2>
+      <div id="orderDetails"></div>
+      <div id="orderActions" class="modal-actions"></div>
+    </div>
+  </div>
+  <div id="partnerModal" class="modal hidden">
+    <div class="modal-card"><button class="close" onclick="closeModal('partnerModal')">×</button><span
+        class="eyebrow">NEW PROFESSIONAL</span>
+      <h2>Add partner</h2>
+      <form id="partnerForm"><label>Name<input id="partnerName" required
+            placeholder="Rajesh Kumar"></label><label>Phone<input id="partnerPhone" required
+            placeholder="9876543210"></label><label>Services<input id="partnerServices"
+            placeholder="Home Cleaning, Cooking"></label><label>Rating<input id="partnerRating" type="number" min="0"
+            max="5" step="0.1" value="5"></label><label class="check"><input id="partnerAvailable" type="checkbox"
+            checked> Available for jobs</label><button class="primary" type="submit">Create partner
+          <span>→</span></button>
+        <div id="partnerError" class="form-error"></div>
+      </form>
+    </div>
+  </div>
+  <div id="toast" class="toast"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js?v=22"></script>
+  <script src="js/admin.js?v=22"></script>
+</body>
+
+</html>

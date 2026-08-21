@@ -1,0 +1,40 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Customer profile: each customer can access only their own document.
+    match /customers/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create, update: if request.auth != null && request.auth.uid == userId;
+      allow delete: if false;
+    }
+
+    // Public service catalog: customers can read active services and pricing.
+    // Only an authenticated admin workflow should write these documents later.
+    match /services/{serviceId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Bookings: customers can create and manage only their own bookings.
+    match /bookings/{bookingId} {
+      allow create: if request.auth != null
+                    && request.resource.data.uid == request.auth.uid;
+
+      allow read: if request.auth != null
+                  && resource.data.uid == request.auth.uid;
+
+      allow update: if request.auth != null
+                    && resource.data.uid == request.auth.uid
+                    && request.resource.data.uid == request.auth.uid;
+
+      allow delete: if false;
+    }
+
+    // Everything else is denied until an admin/partner data model is added.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

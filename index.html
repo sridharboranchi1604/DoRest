@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="DoRest - You rest. We handle the rest. Book trusted home services at your convenience."
+    >
+
+    <title>DoRest | You rest. We handle the rest.</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="site-header">
+
+        <div class="container nav-wrap">
+
+            <a href="#" class="brand" onclick="goHome(); return false;">
+
+                <span class="brand-mark">D</span>
+
+                <span>
+                    <strong>DoRest</strong>
+                    <small>You rest. We handle the rest.</small>
+                </span>
+
+            </a>
+
+
+            <nav class="desktop-nav">
+
+                <a href="#services">
+                    Services
+                </a>
+
+                <a href="#how-it-works">
+                    How it works
+                </a>
+
+                <a href="#why-dorest">
+                    Why DoRest
+                </a>
+
+                <a href="#faq">
+                    FAQ
+                </a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <button
+                    class="location-btn"
+                    onclick="openLocationModal()"
+                >
+
+                    <span>⌖</span>
+
+                    <span id="locationText">
+                        Select location
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="login-btn"
+                    id="accountHeaderBtn"
+                    onclick="openCustomerAccount()"
+                >
+                    Login
+                </button>
+
+                <button
+                    class="logout-header-btn"
+                    id="logoutHeaderBtn"
+                    type="button"
+                    onclick="customerLogout()"
+                    aria-label="Log out of DoRest"
+                    style="display:none;"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                onclick="toggleMobileMenu()"
+            >
+                ☰
+            </button>
+
+        </div>
+
+
+        <div
+            class="mobile-menu"
+            id="mobileMenu"
+        >
+
+            <button
+                class="mobile-logout-btn"
+                id="mobileLogoutBtn"
+                type="button"
+                onclick="customerLogout(); closeMobileMenu();"
+                style="display:none;"
+            >
+                Logout
+            </button>
+
+            <a
+                href="#services"
+                onclick="closeMobileMenu()"
+            >
+                Services
+            </a>
+
+            <a
+                href="#how-it-works"
+                onclick="closeMobileMenu()"
+            >
+                How it works
+            </a>
+
+            <a
+                href="#why-dorest"
+                onclick="closeMobileMenu()"
+            >
+                Why DoRest
+            </a>
+
+            <a
+                href="#faq"
+                onclick="closeMobileMenu()"
+            >
+                FAQ
+            </a>
+
+            <button
+                onclick="openLocationModal(); closeMobileMenu()"
+            >
+                ⌖ Select location
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main id="home">
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="hero-bg"></div>
+
+
+            <div class="container hero-grid">
+
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        HOME SERVICES, MADE SIMPLE
+                    </div>
+
+
+                    <h1>
+                        Your home.
+                        <br>
+
+                        <span>Your comfort.</span>
+
+                        <br>
+
+                        Our responsibility.
+                    </h1>
+
+
+                    <p>
+                        Book reliable professionals for cleaning,
+                        cooking, repairs, laundry, beauty and more —
+                        right at your doorstep.
+                    </p>
+
+
+                    <div class="hero-search">
+
+                        <span>⌕</span>
+
+                        <input
+                            id="serviceSearch"
+                            type="text"
+                            placeholder="What service do you need?"
+                            oninput="filterServices()"
+                        >
+
+                        <button onclick="focusServices()">
+                            Search
+                        </button>
+
+                    </div>
+
+
+                    <div class="hero-trust">
+
+                        <span>
+                            ✓ Verified professionals
+                        </span>
+
+                        <span>
+                            ✓ Transparent pricing
+                        </span>
+
+                        <span>
+                            ✓ Easy booking
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-card">
+
+                    <div class="floating-badge">
+                        ★ 4.9 rated service
+                    </div>
+
+
+                    <div class="hero-card-icon">
+                        🏠
+                    </div>
+
+
+                    <h3>
+                        Need help at home?
+                    </h3>
+
+
+                    <p>
+                        Tell us what you need.
+                        We'll take care of the rest.
+                    </p>
+
+
+                    <button
+                        class="primary-btn"
+                        onclick="focusServices()"
+                    >
+                        Explore services
+                        <span>→</span>
+                    </button>
+
+
+                    <div class="hero-card-stats">
+
+                        <div>
+                            <strong>50+</strong>
+                            <span>Services</span>
+                        </div>
+
+                        <div>
+                            <strong>4.9★</strong>
+                            <span>Rating</span>
+                        </div>
+
+                        <div>
+                            <strong>7 days</strong>
+                            <span>Support</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <section
+            class="section"
+            id="services"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            WHAT WE DO
+                        </span>
+
+                        <h2>
+                            Services for your everyday needs
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        class="text-btn"
+                        onclick="resetServiceFilter()"
+                    >
+                        View all →
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="service-grid"
+                    id="serviceGrid"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= POPULAR ================= -->
+
+        <section class="section light-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            POPULAR RIGHT NOW
+                        </span>
+
+                        <h2>
+                            People are booking these
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="popular-grid"
+                    id="popularGrid"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HOW IT WORKS ================= -->
+
+        <section
+            class="section"
+            id="how-it-works"
+        >
+
+            <div class="container">
+
+                <div class="center-heading">
+
+                    <span class="section-label">
+                        HOW IT WORKS
+                    </span>
+
+                    <h2>
+                        Getting things done is easy
+                    </h2>
+
+                    <p>
+                        From booking to doorstep service,
+                        we keep it simple.
+                    </p>
+
+                </div>
+
+
+                <div class="steps-grid">
+
+
+                    <div class="step-card">
+
+                        <span class="step-number">
+                            01
+                        </span>
+
+                        <div class="step-icon">
+                            ⌕
+                        </div>
+
+                        <h3>
+                            Choose a service
+                        </h3>
+
+                        <p>
+                            Pick exactly what you need
+                            from our range of home services.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-card">
+
+                        <span class="step-number">
+                            02
+                        </span>
+
+                        <div class="step-icon">
+                            ◷
+                        </div>
+
+                        <h3>
+                            Pick a time
+                        </h3>
+
+                        <p>
+                            Choose a date and time
+                            that works for your schedule.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-card">
+
+                        <span class="step-number">
+                            03
+                        </span>
+
+                        <div class="step-icon">
+                            ✓
+                        </div>
+
+                        <h3>
+                            Relax
+                        </h3>
+
+                        <p>
+                            A verified professional comes
+                            to your doorstep and handles the rest.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= WHY DOREST ================= -->
+
+        <section
+            class="section dark-section"
+            id="why-dorest"
+        >
+
+            <div class="container why-grid">
+
+                <div>
+
+                    <span class="section-label light-label">
+                        WHY DOREST
+                    </span>
+
+                    <h2>
+                        Less to worry about.
+                        <br>
+                        More time for you.
+                    </h2>
+
+                    <p>
+                        We are building DoRest around one simple idea:
+                        everyday home tasks should not take over your day.
+                    </p>
+
+                </div>
+
+
+                <div class="why-list">
+
+
+                    <div class="why-item">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Verified professionals
+                            </strong>
+
+                            <p>
+                                Service partners are screened
+                                and trained.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="why-item">
+
+                        <span>₹</span>
+
+                        <div>
+
+                            <strong>
+                                Clear pricing
+                            </strong>
+
+                            <p>
+                                Know the expected price
+                                before confirming.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="why-item">
+
+                        <span>↻</span>
+
+                        <div>
+
+                            <strong>
+                                Easy rescheduling
+                            </strong>
+
+                            <p>
+                                Plans changed?
+                                Manage your booking easily.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="why-item">
+
+                        <span>♡</span>
+
+                        <div>
+
+                            <strong>
+                                Support when you need it
+                            </strong>
+
+                            <p>
+                                We're here to help throughout
+                                your booking.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FAQ ================= -->
+
+        <section
+            class="section faq-section"
+            id="faq"
+        >
+
+            <div class="container faq-wrap">
+
+                <div class="center-heading">
+
+                    <span class="section-label">
+                        FAQ
+                    </span>
+
+                    <h2>
+                        Questions, answered.
+                    </h2>
+
+                </div>
+
+
+                <div class="faq-list">
+
+
+                    <details>
+
+                        <summary>
+                            Are DoRest professionals verified?
+                        </summary>
+
+                        <p>
+                            Yes. DoRest is designed around
+                            verified and trained service professionals.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            Can I choose a date and time?
+                        </summary>
+
+                        <p>
+                            Yes. During booking you can select
+                            an available date and time slot.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            Can I cancel or reschedule?
+                        </summary>
+
+                        <p>
+                            Yes. Booking management and cancellation
+                            rules will be shown before confirmation.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            How will I pay?
+                        </summary>
+
+                        <p>
+                            Online payment options will be added
+                            as we connect the booking system
+                            and payment gateway.
+                        </p>
+
+                    </details>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+
+            <div>
+
+                <div class="brand footer-brand">
+
+                    <span class="brand-mark">
+                        D
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            DoRest
+                        </strong>
+
+                        <small>
+                            You rest. We handle the rest.
+                        </small>
+
+                    </span>
+
+                </div>
+
+
+                <p class="footer-copy">
+                    A better way to get everyday
+                    home services done.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Company
+                </h4>
+
+                <a href="#why-dorest">
+                    About DoRest
+                </a>
+
+                <a href="#how-it-works">
+                    How it works
+                </a>
+
+                <a href="#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Services
+                </h4>
+
+                <a href="#services">
+                    Cleaning
+                </a>
+
+                <a href="#services">
+                    Cooking
+                </a>
+
+                <a href="#services">
+                    Repairs
+                </a>
+
+                <a href="#services">
+                    Laundry
+                </a>
+
+                <a href="#services">
+                    Beauty
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Get the app
+                </h4>
+
+                <button
+                    class="store-btn"
+                    onclick="showToast('DoRest Android app is coming soon.')"
+                >
+                    ▶ Google Play
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
+
+            <span>
+                © 2026 DoRest. All rights reserved.
+            </span>
+
+            <span>
+                You rest. We handle the rest.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= BOOKING DETAILS MODAL ================= -->
+
+    <div class="modal-overlay" id="bookingDetailsModal">
+
+        <div class="modal-card booking-details-modal">
+
+            <button class="modal-close" onclick="closeBookingDetails()">×</button>
+
+            <div id="bookingDetailsContent"></div>
+
+        </div>
+    </div>
+
+    <!-- ================= LOCATION MODAL ================= -->
+
+    <div
+        class="modal-overlay"
+        id="locationModal"
+    >
+
+        <div class="modal-card small-modal">
+
+            <button
+                class="close-btn"
+                onclick="closeLocationModal()"
+            >
+                ×
+            </button>
+
+
+            <span class="modal-icon">
+                ⌖
+            </span>
+
+
+            <h2>
+                Where do you need service?
+            </h2>
+
+
+            <p>
+                Enter your area to see services
+                available near you.
+            </p>
+
+
+            <input
+                id="locationInput"
+                class="modal-input"
+                type="text"
+                placeholder="e.g. Koramangala, Bengaluru"
+            >
+
+
+            <button
+                class="primary-btn full-btn"
+                onclick="saveLocation()"
+            >
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SERVICE DETAILS MODAL ================= -->
+
+    <div class="modal-overlay" id="serviceDetailsModal">
+        <div class="modal-card service-details-modal">
+            <button class="close-btn" onclick="closeServiceDetails()">×</button>
+            <div class="service-details-hero">
+                <div class="service-details-icon" id="detailsServiceIcon">🧹</div>
+                <div>
+                    <span class="section-label">SERVICE DETAILS</span>
+                    <h2 id="detailsServiceName">Home Cleaning</h2>
+                    <p id="detailsServiceDescription">Complete cleaning for your home.</p>
+                </div>
+            </div>
+            <div class="service-details-price-card">
+                <div><span>Starting price</span><strong id="detailsBasePrice">₹399</strong></div>
+                <span class="service-live-badge">Live pricing</span>
+            </div>
+            <div class="service-details-grid">
+                <div class="service-detail-box"><span>Category</span><strong id="detailsCategory">Cleaning</strong></div>
+                <div class="service-detail-box"><span>1 hour</span><strong id="detailsOneHourPrice">₹399</strong></div>
+                <div class="service-detail-box"><span>2 hours</span><strong id="detailsTwoHourPrice">₹798</strong></div>
+                <div class="service-detail-box"><span>4 hours</span><strong id="detailsFourHourPrice">₹1,596</strong></div>
+            </div>
+            <div class="service-details-note" id="detailsPricingNote">Choose your duration during booking. Your estimated total updates instantly.</div>
+            <div class="service-details-actions">
+                <button class="secondary-btn" type="button" onclick="closeServiceDetails()">Close</button>
+                <button class="primary-btn" type="button" id="detailsBookBtn">Book this service <span>→</span></button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= BOOKING MODAL ================= -->
+
+    <div
+        class="modal-overlay"
+        id="bookingModal"
+    >
+
+        <div class="modal-card booking-modal">
+
+            <button
+                class="close-btn"
+                onclick="closeBookingModal()"
+            >
+                ×
+            </button>
+
+
+            <div class="booking-header">
+
+                <div>
+
+                    <span class="section-label">
+                        BOOK SERVICE
+                    </span>
+
+                    <h2 id="bookingTitle">
+                        Home Cleaning
+                    </h2>
+
+                    <p id="bookingDescription">
+                        Professional cleaning for your home.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="booking-icon"
+                    id="bookingIcon"
+                >
+                    🧹
+                </div>
+
+            </div>
+
+
+            <!-- ================= COOKING OPTIONS ================= -->
+
+            <div
+                class="cooking-options"
+                id="cookingOptions"
+                hidden
+            >
+
+                <div class="cooking-intro">
+                    <span class="cooking-intro-icon">👨‍🍳</span>
+
+                    <div>
+                        <strong>Personalize your cooking service</strong>
+                        <p>Tell us what you need so we can arrange the right professional.</p>
+                    </div>
+                </div>
+
+
+                <div class="booking-section">
+
+                    <label>
+                        Cooking type
+                    </label>
+
+                    <div
+                        class="option-grid cooking-option-grid"
+                        id="cookingTypeOptions"
+                    ></div>
+
+                </div>
+
+
+                <div class="booking-section">
+
+                    <label>
+                        Meals required
+                    </label>
+
+                    <div
+                        class="option-grid cooking-option-grid"
+                        id="cookingMealOptions"
+                    ></div>
+
+                </div>
+
+
+                <div class="booking-section">
+
+                    <label>
+                        Cuisine
+                    </label>
+
+                    <div
+                        class="option-grid cooking-option-grid"
+                        id="cookingCuisineOptions"
+                    ></div>
+
+                </div>
+
+
+                <div class="booking-section">
+
+                    <label>
+                        Food preference
+                    </label>
+
+                    <div
+                        class="option-grid cooking-option-grid"
+                        id="cookingPreferenceOptions"
+                    ></div>
+
+                </div>
+
+
+                <div class="booking-section">
+
+                    <label>
+                        Number of people
+                    </label>
+
+                    <div
+                        class="option-grid cooking-option-grid"
+                        id="cookingPeopleOptions"
+                    ></div>
+
+                </div>
+
+
+                <div class="booking-section">
+
+                    <label for="cookingInstructions">
+                        Special instructions
+                        <span class="optional-label">Optional</span>
+                    </label>
+
+                    <textarea
+                        id="cookingInstructions"
+                        class="cooking-textarea"
+                        maxlength="500"
+                        placeholder="Example: Less spicy, no onion, prepare lunch for 4 people."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="booking-section">
+
+                <label>
+                    Choose duration
+                </label>
+
+                <div
+                    class="option-grid"
+                    id="durationOptions"
+                ></div>
+
+            </div>
+
+
+            <div class="booking-section">
+
+                <label>
+                    Choose date
+                </label>
+
+                <div
+                    class="date-grid"
+                    id="dateOptions"
+                ></div>
+
+            </div>
+
+
+            <div class="booking-section">
+
+                <label>
+                    Choose time
+                </label>
+
+                <div
+                    class="time-grid"
+                    id="timeOptions"
+                ></div>
+
+            </div>
+
+
+            <div class="booking-summary">
+
+                <div>
+
+                    <span>
+                        Estimated total
+                    </span>
+
+                    <strong id="bookingPrice">
+                        ₹399
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="continueToAddress()"
+                >
+                    Continue
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ADDRESS MODAL ================= -->
+
+    <div
+        class="modal-overlay"
+        id="addressModal"
+    >
+
+        <div class="modal-card booking-modal address-modal-enhanced">
+
+            <button
+                class="close-btn"
+                onclick="closeAddressModal()"
+            >
+                ×
+            </button>
+
+            <span class="section-label">YOUR ADDRESS</span>
+            <h2>Where should we come?</h2>
+            <p class="modal-subtitle">Choose a saved address or add a new service location.</p>
+
+            <div id="savedAddressesSection" class="saved-addresses-section" hidden>
+                <div class="address-section-head">
+                    <strong>Saved addresses</strong>
+                    <button type="button" class="text-action-btn" onclick="startNewAddress()">+ Add new</button>
+                </div>
+                <div id="savedAddressesList" class="saved-addresses-list"></div>
+            </div>
+
+            <div class="location-action-row">
+                <button type="button" class="location-detect-btn" onclick="useCurrentLocation()">
+                    <span>⌖</span> Use current location
+                </button>
+                <span id="locationDetectStatus" class="location-detect-status">We’ll attach your location to this booking.</span>
+            </div>
+
+            <div class="new-address-heading" id="newAddressHeading">Add service address</div>
+
+            <div class="form-grid">
+                <div class="form-group full">
+                    <label>House / Flat / Building</label>
+                    <input id="addressLine1" class="modal-input" placeholder="e.g. Flat 402, Sunshine Apartments">
+                </div>
+
+                <div class="form-group full">
+                    <label>Street / Area</label>
+                    <input id="addressLine2" class="modal-input" placeholder="e.g. 8th Block, Koramangala">
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    <input id="addressCity" class="modal-input" value="Bengaluru">
+                </div>
+
+                <div class="form-group">
+                    <label>Pincode</label>
+                    <input id="addressPin" class="modal-input" placeholder="560001" maxlength="6" inputmode="numeric">
+                </div>
+
+                <div class="form-group full">
+                    <label>Landmark <span>Optional</span></label>
+                    <input id="addressLandmark" class="modal-input" placeholder="Near...">
+                </div>
+            </div>
+
+            <label class="save-address-toggle">
+                <input type="checkbox" id="saveAddressCheckbox">
+                <span>Save this address for future bookings</span>
+            </label>
+
+            <div id="saveAddressLabelWrap" class="save-address-label-wrap" hidden>
+                <label for="addressLabel">Address label</label>
+                <input id="addressLabel" class="modal-input" placeholder="Home, Work, Parents..." maxlength="24">
+            </div>
+
+            <div class="booking-summary address-summary">
+                <div>
+                    <span id="addressServiceName">Home Cleaning</span>
+                    <strong id="addressTotal">₹399</strong>
+                </div>
+                <button class="primary-btn" onclick="reviewBooking()">Review booking <span>→</span></button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= REVIEW BOOKING ================= -->
+    <div class="modal-overlay" id="reviewModal">
+        <div class="modal-card booking-modal">
+            <button class="close-btn" type="button" onclick="closeReviewModal()">×</button>
+            <span class="section-label">REVIEW BOOKING</span>
+            <h2>Almost there</h2>
+            <p class="modal-subtitle">Please check your booking details before confirming.</p>
+
+            <div class="review-card">
+                <div class="review-row">
+                    <span>Service</span>
+                    <strong id="reviewService">Home Cleaning</strong>
+                </div>
+                <div class="review-row">
+                    <span>Duration</span>
+                    <strong id="reviewDuration">1 Hour</strong>
+                </div>
+                <div class="review-row">
+                    <span>Date</span>
+                    <strong id="reviewDate">—</strong>
+                </div>
+                <div class="review-row">
+                    <span>Time</span>
+                    <strong id="reviewTime">—</strong>
+                </div>
+                <div class="review-row">
+                    <span>Service address</span>
+                    <strong id="reviewAddress">—</strong>
+                </div>
+
+                <div class="cooking-review-card" id="cookingReviewCard" hidden>
+                    <div class="cooking-review-title">Cooking service details</div>
+                    <div class="review-row"><span>Cooking type</span><strong id="reviewCookingType">—</strong></div>
+                    <div class="review-row"><span>Meals</span><strong id="reviewCookingMeal">—</strong></div>
+                    <div class="review-row"><span>Cuisine</span><strong id="reviewCookingCuisine">—</strong></div>
+                    <div class="review-row"><span>Food preference</span><strong id="reviewCookingPreference">—</strong></div>
+                    <div class="review-row"><span>People</span><strong id="reviewCookingPeople">—</strong></div>
+                    <div class="review-row"><span>Instructions</span><strong id="reviewCookingInstructions">—</strong></div>
+                </div>
+
+                <div class="review-total">
+                    <span>Total</span>
+                    <strong id="reviewTotal">₹399</strong>
+                </div>
+            </div>
+
+            <div class="service-details-actions" style="margin-top:20px;">
+                <button class="secondary-btn" type="button" onclick="closeReviewModal()">Back</button>
+                <button class="primary-btn" type="button" id="confirmBookingBtn" onclick="confirmBooking()">Confirm booking <span>✓</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= BOOKING CONFIRMED ================= -->
+    <div class="modal-overlay" id="confirmationModal">
+        <div class="modal-card confirmation-card">
+            <div class="success-icon">✓</div>
+            <span class="section-label">BOOKING CONFIRMED</span>
+            <h2>You're all set!</h2>
+            <p class="modal-subtitle">Your DoRest service has been booked successfully.</p>
+
+            <div class="booking-id" style="margin:20px 0;">
+                <span>BOOKING ID</span>
+                <strong id="bookingId">DR-0000000000-000</strong>
+            </div>
+
+            <div class="confirmation-details">
+                <div><span>Service</span><strong id="confirmService">Home Cleaning</strong></div>
+                <div><span>Date & time</span><strong id="confirmDateTime">—</strong></div>
+                <div><span>Total</span><strong id="confirmTotal">₹399</strong></div>
+            </div>
+
+            <div class="service-details-actions" style="margin-top:22px;">
+                <button class="secondary-btn" type="button" onclick="closeConfirmation()">Done</button>
+                <button class="primary-btn" type="button" onclick="closeConfirmation(); openCustomerAccount(); switchAccountTab('bookings');">My bookings <span>→</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= CUSTOMER AUTH ================= -->
+
+    <div class="modal-overlay" id="customerAuthModal">
+
+        <div class="modal-card auth-modal">
+
+            <button class="close-btn" onclick="closeAuthModal()">×</button>
+
+            <div class="auth-brand">
+                <div class="auth-logo">D</div>
+                <div>
+                    <strong>DoRest</strong>
+                    <span>You rest. We handle the rest.</span>
+                </div>
+            </div>
+
+            <div class="auth-copy">
+                <span class="section-label">CUSTOMER ACCOUNT</span>
+                <h2 id="authTitle">Welcome back</h2>
+                <p id="authSubtitle">Login to manage your bookings and profile.</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="customerLoginTab" onclick="switchAuthMode('login')">Login</button>
+                <button class="auth-tab" id="customerSignupTab" onclick="switchAuthMode('signup')">Create account</button>
+            </div>
+
+            <form class="auth-form" id="customerLoginForm" onsubmit="event.preventDefault(); customerLogin();">
+                <label for="loginEmail">Email address</label>
+                <input class="modal-input" id="loginEmail" type="email" autocomplete="email" placeholder="you@example.com">
+
+                <label for="loginPassword">Password</label>
+                <div class="auth-password-wrap">
+                    <input class="modal-input" id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter your password">
+                    <button type="button" onclick="toggleAuthPassword('loginPassword', this)">Show</button>
+                </div>
+
+                <button class="primary-btn full-btn auth-submit" id="customerLoginBtn" type="submit">Login</button>
+                <button class="auth-link" type="button" onclick="requestPasswordReset()">Forgot password?</button>
+            </form>
+
+            <form class="auth-form" id="customerSignupForm" hidden onsubmit="event.preventDefault(); customerSignup();">
+                <label for="signupName">Full name</label>
+                <input class="modal-input" id="signupName" autocomplete="name" placeholder="Your full name">
+
+                <label for="signupPhone">Mobile number</label>
+                <div class="auth-phone-row">
+                    <span>+91</span>
+                    <input id="signupPhone" inputmode="numeric" maxlength="10" autocomplete="tel" placeholder="10-digit mobile number">
+                </div>
+
+                <label for="signupEmail">Email address</label>
+                <input class="modal-input" id="signupEmail" type="email" autocomplete="email" placeholder="you@example.com">
+
+                <label for="signupPassword">Password <small>(minimum 6 characters)</small></label>
+                <div class="auth-password-wrap">
+                    <input class="modal-input" id="signupPassword" type="password" autocomplete="new-password" placeholder="Create a password">
+                    <button type="button" onclick="toggleAuthPassword('signupPassword', this)">Show</button>
+                </div>
+
+                <button class="primary-btn full-btn auth-submit" id="customerSignupBtn" type="submit">Create account</button>
+            </form>
+
+            <div class="auth-divider">OR</div>
+            <button class="guest-btn" type="button" onclick="continueAsGuest()">Continue as guest</button>
+            <p class="auth-note">Your account is secured with Firebase Authentication. Your password is never stored by DoRest.</p>
+
+        </div>
+    </div>
+
+
+
+    <div class="modal-overlay" id="accountModal">
+
+        <div class="modal-card account-modal">
+
+            <button class="close-btn" onclick="closeAccount()">×</button>
+
+            <div class="account-head">
+                <div class="account-avatar" id="accountAvatar">D</div>
+                <div>
+                    <span class="section-label">MY DOREST</span>
+                    <h2 id="accountTitle">Welcome to DoRest</h2>
+                    <p id="accountSubtitle">Manage your profile and bookings.</p>
+                    <button type="button" class="logout-account-top-btn" onclick="customerLogout()">Logout</button>
+                </div>
+            </div>
+
+            <div class="account-tabs">
+                <button class="account-tab active" id="profileTab" onclick="switchAccountTab('profile')">Profile</button>
+                <button class="account-tab" id="bookingsTab" onclick="switchAccountTab('bookings')">My Bookings</button>
+            </div>
+
+            <div id="profilePanel">
+                <div class="account-form-grid">
+                    <div>
+                        <label for="profileName">Full name</label>
+                        <input class="modal-input" id="profileName" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label for="profilePhone">Mobile number</label>
+                        <input class="modal-input" id="profilePhone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile">
+                    </div>
+                    <div>
+                        <label for="profileEmail">Email</label>
+                        <input class="modal-input" id="profileEmail" type="email" placeholder="you@example.com">
+                    </div>
+                    <div class="full-account-field">
+                        <label for="profileAddress">Saved address</label>
+                        <textarea class="account-textarea" id="profileAddress" placeholder="Your preferred service address"></textarea>
+                    </div>
+                </div>
+
+                <button class="primary-btn full-btn" onclick="saveProfile()">Save profile</button>
+
+                <button class="logout-account-btn" onclick="customerLogout()">
+                    Log out of DoRest
+                </button>
+            </div>
+
+            <div id="bookingsPanel" hidden>
+                <div class="booking-filter-row">
+                    <button class="booking-filter active" onclick="filterBookings('all', this)">All</button>
+                    <button class="booking-filter" onclick="filterBookings('upcoming', this)">Upcoming</button>
+                    <button class="booking-filter" onclick="filterBookings('completed', this)">Completed</button>
+                    <button class="booking-filter" onclick="filterBookings('cancelled', this)">Cancelled</button>
+                </div>
+                <div class="bookings-list" id="bookingsList"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= TOAST ================= -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-auth.js?v=21"></script>
+    <script src="js/app.js?v=21"></script>
+
+</body>
+</html>
