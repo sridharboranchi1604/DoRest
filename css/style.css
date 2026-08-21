@@ -2440,3 +2440,86 @@ details p {
 #bookingDetailsModal {
     z-index: 9999 !important;
 }
+
+/* =========================================================
+   DOREST FOOTER
+========================================================= */
+
+.dorest-footer {
+    margin-top: 60px;
+    padding: 32px 20px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(8, 12, 20, 0.65);
+    backdrop-filter: blur(12px);
+}
+
+.footer-brand {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.footer-tagline {
+    font-size: 12px;
+    opacity: 0.55;
+    margin-bottom: 18px;
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+    opacity: 0.75;
+}
+
+.footer-contact strong {
+    font-weight: 600;
+}
+
+.footer-contact a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer-contact a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+.footer-copy {
+    margin-top: 14px;
+    font-size: 10px;
+    opacity: 0.35;
+}
+
+
+/* =========================================================
+   FOOTER — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .dorest-footer {
+        margin-top: 40px;
+        padding: 26px 15px 20px;
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .footer-contact span {
+        display: none;
+    }
+
+    .footer-contact a {
+        word-break: break-word;
+    }
+}
